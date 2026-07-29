@@ -1,7 +1,7 @@
 # Fraud-Detection-Pipeline-With-AI-Powered-Triage
 **SQL-based fraud detection (dbt) + AI-powered triage agent (n8n + Claude) + analyst review dashboard**
 
-An end-to-end fraud detection system built for a banking context — from raw transaction data to a human analyst's decision. Transactions are simulated, flagged using explainable SQL rules in dbt, enriched by an AI agent, and surfaced in a lightweight review dashboard — all with a human-in-the-loop at every stage.
+An end-to-end fraud detection system built for a banking context  from raw transaction data to a human analyst's decision. Transactions are simulated, flagged using explainable SQL rules in dbt, enriched by an AI agent, and surfaced in a lightweight review dashboard  all with a human-in-the-loop at every stage.
 
 ---
 <img width="918" height="830" alt="fraud dashboard" src="https://github.com/user-attachments/assets/e50b3c06-a75d-4ac3-bc0f-dc219afe470e" />
@@ -20,10 +20,10 @@ https://github.com/user-attachments/assets/PASTE-YOUR-UPLOADED-VIDEO-LINK-HERE
 ## What This Project Does
 
 - **Simulates realistic bank transactions** (5,000+) with injected fraud patterns: unusual amounts, foreign locations, rapid repeat transactions
-- **Flags suspicious activity using explainable SQL rules** in dbt — no black-box model, every flag traces back to a specific, auditable rule
-- **Enriches flagged transactions with AI** — an n8n workflow sends each flag to Claude, which writes a plain-language risk summary and routes it to Slack by severity
-- **Gives analysts a working review dashboard** — filter by risk level, see exactly which rules triggered per transaction ("flag DNA"), and check route/amount at a glance
-- **Validates itself** — 14 automated dbt tests for data quality, and detection performance measured against ground truth
+- **Flags suspicious activity using explainable SQL rules** in dbt - no black-box model, every flag traces back to a specific, auditable rule
+- **Enriches flagged transactions with AI** - an n8n workflow sends each flag to Claude, which writes a plain-language risk summary and routes it to Slack by severity
+- **Gives analysts a working review dashboard** - filter by risk level, see exactly which rules triggered per transaction ("flag DNA"), and check route/amount at a glance
+- **Validates itself** -14 automated dbt tests for data quality, and detection performance measured against ground truth
 
 ## Results
 
@@ -142,10 +142,10 @@ Import `n8n/fraud_triage_agent.json` via the n8n UI, add your Postgres/Claude/Sl
 
 ## Design Principles
 
-- **Explainable by default** — every flag traces to a specific SQL rule, not a black box. Important for audit and compliance in banking.
-- **Human-in-the-loop** — the AI agent enriches and routes; it never autonomously blocks a card or closes an account.
-- **Portable** — DuckDB is used for a zero-setup local demo, but every model is standard SQL that runs unchanged on PostgreSQL or Snowflake.
-- **Tested** — 14 automated dbt tests guard data quality throughout the pipeline.
+- **Explainable by default** - every flag traces to a specific SQL rule, not a black box. Important for audit and compliance in banking.
+- **Human-in-the-loop** - the AI agent enriches and routes; it never autonomously blocks a card or closes an account.
+- **Portable** - DuckDB is used for a zero-setup local demo, but every model is standard SQL that runs unchanged on PostgreSQL or Snowflake.
+- **Tested** - 14 automated dbt tests guard data quality throughout the pipeline.
 
 ## Next Steps / Extensions
 

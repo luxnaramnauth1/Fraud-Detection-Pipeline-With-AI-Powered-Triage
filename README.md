@@ -15,9 +15,6 @@ https://github.com/user-attachments/assets/PASTE-YOUR-UPLOADED-VIDEO-LINK-HERE
 
 https://github.com/user-attachments/assets/PASTE-YOUR-UPLOADED-VIDEO-LINK-HERE
 
-> **How to add these:** GitHub doesn't render local `.mp4` files inside a README, but it will host and embed video if you drag-and-drop the `.mp4` file directly into a GitHub issue, PR, or directly into the README editor on github.com. GitHub will upload it and generate a `github.com/user-attachments/assets/...` link automatically — paste that link in place of the placeholders above and it will render as an inline playable video. Alternatively, upload to YouTube/Loom (unlisted) and link normally, or add a GIF preview that links to the full `.mp4` in this repo.
-
----
 
 ## What This Project Does
 
@@ -156,6 +153,4 @@ Import `n8n/fraud_triage_agent.json` via the n8n UI, add your Postgres/Claude/Sl
 - Add incremental loading instead of full-batch reloads
 - Extend the n8n agent with tool-calling (native AI Agent node) for deeper account investigation
 
-## License
 
-MIT — feel free to fork and adapt.

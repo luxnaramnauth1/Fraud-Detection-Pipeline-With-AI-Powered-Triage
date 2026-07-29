@@ -10,7 +10,7 @@ An end-to-end fraud detection system built for a banking context  from raw trans
 
 **Pipeline walkthrough** (data generation → dbt → AI agent, ~57s):
 
-https://github.com/user-attachments/assets/PASTE-YOUR-UPLOADED-VIDEO-LINK-HERE
+https://github.com/luxnaramnauth1/Fraud-Detection-Pipeline-With-AI-Powered-Triage/blob/main/fraud_app_demo%20(1).mp4
 
 **Fraud Review Console app demo** (~22s):
 

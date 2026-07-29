@@ -4,6 +4,7 @@
 An end-to-end fraud detection system built for a banking context — from raw transaction data to a human analyst's decision. Transactions are simulated, flagged using explainable SQL rules in dbt, enriched by an AI agent, and surfaced in a lightweight review dashboard — all with a human-in-the-loop at every stage.
 
 ---
+<img width="918" height="830" alt="fraud dashboard" src="https://github.com/user-attachments/assets/e50b3c06-a75d-4ac3-bc0f-dc219afe470e" />
 
 ## Demo
 

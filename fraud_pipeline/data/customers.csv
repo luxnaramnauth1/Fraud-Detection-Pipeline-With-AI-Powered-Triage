@@ -1,0 +1,201 @@
+customer_id,customer_name,home_city,avg_transaction_amount,account_open_date
+CUST00000,Allison Hill,Curepipe,1914.94,2022-09-01
+CUST00001,Megan Mcclain,Port Louis,1195.57,2021-12-30
+CUST00002,Allen Robinson,Vacoas,1105.83,2024-01-21
+CUST00003,Cristian Santos,Rose Hill,1105.84,2024-04-01
+CUST00004,Kevin Pacheco,Rose Hill,3719.77,2021-08-07
+CUST00005,Melissa Peterson,Quatre Bornes,2293.36,2022-05-02
+CUST00006,Gabrielle Davis,Curepipe,904.86,2022-01-16
+CUST00007,Lindsey Roman,Mahebourg,1975.85,2025-02-27
+CUST00008,Valerie Gray,Curepipe,1599.17,2024-04-14
+CUST00009,Lisa Hensley,Tamarin,172.73,2024-05-29
+CUST00010,Amber Perez,Flacq,536.99,2022-12-29
+CUST00011,David Garcia,Port Louis,1684.93,2022-12-08
+CUST00012,Holly Wood,Port Louis,3492.14,2022-08-07
+CUST00013,Timothy Wong,Curepipe,1113.48,2024-07-25
+CUST00014,Nicholas Martin,Rose Hill,846.42,2023-06-08
+CUST00015,Margaret Hawkins DDS,Rose Hill,1451.21,2025-09-18
+CUST00016,Crystal Johnson,Mahebourg,804.23,2023-02-13
+CUST00017,Daniel Hahn,Tamarin,1054.19,2025-11-17
+CUST00018,Matthew Foster,Port Louis,1319.44,2026-01-25
+CUST00019,Derek Wright,Mahebourg,512.11,2024-04-30
+CUST00020,Kevin Hurst,Rose Hill,2376.05,2023-07-14
+CUST00021,Zachary Hicks,Mahebourg,428.15,2022-01-06
+CUST00022,Brian Burton,Flacq,378.23,2025-06-19
+CUST00023,Arthur James,Rose Hill,1547.16,2026-06-21
+CUST00024,Tricia Valencia,Grand Baie,2250.68,2021-08-16
+CUST00025,Melanie Herrera,Tamarin,1518.27,2022-11-18
+CUST00026,Ashley Graham,Vacoas,1217.42,2023-10-20
+CUST00027,Sherri Baker,Port Louis,1045.91,2024-01-12
+CUST00028,Thomas Harrell,Quatre Bornes,911.93,2023-01-14
+CUST00029,Lisa Hernandez,Flacq,2750.24,2025-04-27
+CUST00030,Paula Moreno,Beau Bassin,1696.84,2021-07-28
+CUST00031,Alec Hickman,Vacoas,973.86,2025-11-22
+CUST00032,Elizabeth Brown,Quatre Bornes,749.29,2025-11-20
+CUST00033,Angelica Tucker,Rose Hill,2070.1,2021-11-28
+CUST00034,Pamela Anderson,Beau Bassin,2706.75,2023-11-28
+CUST00035,Deborah Brennan,Curepipe,2544.97,2023-08-26
+CUST00036,Joshua Blair,Curepipe,640.84,2022-07-23
+CUST00037,Zachary Santos,Flacq,1038.8,2023-09-22
+CUST00038,Barbara Walker,Curepipe,897.15,2023-03-26
+CUST00039,Crystal Robinson,Beau Bassin,1150.63,2021-12-01
+CUST00040,Crystal Whitehead,Beau Bassin,2360.87,2025-10-18
+CUST00041,David Caldwell,Tamarin,3281.81,2022-08-15
+CUST00042,Timothy Duncan,Vacoas,1742.79,2023-11-23
+CUST00043,Rhonda Lee,Port Louis,771.88,2022-01-17
+CUST00044,Jeff Owens,Grand Baie,1296.67,2025-02-26
+CUST00045,Victoria Garcia,Mahebourg,3690.03,2023-07-20
+CUST00046,Scott Wright,Curepipe,1425.27,2022-07-03
+CUST00047,Javier Ramirez,Flacq,1047.75,2022-10-18
+CUST00048,Jessica Callahan,Curepipe,1119.08,2024-04-10
+CUST00049,Zachary Huff,Mahebourg,1737.21,2026-05-03
+CUST00050,Sarah Martin,Vacoas,660.51,2023-12-16
+CUST00051,James Brown,Tamarin,879.36,2023-06-08
+CUST00052,Mrs. Rachel Gibson,Beau Bassin,2519.82,2023-08-26
+CUST00053,Whitney Peters,Tamarin,1702.5,2025-02-06
+CUST00054,Edward Novak,Rose Hill,1436.13,2024-06-01
+CUST00055,Nicole Brown,Curepipe,2604.81,2024-06-10
+CUST00056,Sarah Moore,Port Louis,731.75,2026-04-18
+CUST00057,Cody Larson,Rose Hill,1022.75,2024-11-21
+CUST00058,Bryan Zamora,Vacoas,1663.14,2022-10-12
+CUST00059,Lisa Barnes,Curepipe,1621.53,2024-06-09
+CUST00060,Taylor Harris,Rose Hill,340.68,2025-02-02
+CUST00061,James Powers,Curepipe,944.37,2023-01-17
+CUST00062,Paul Jones,Flacq,1173.6,2023-10-28
+CUST00063,Dr. Angel Lewis MD,Vacoas,1795.68,2026-02-28
+CUST00064,Sherry Wood,Grand Baie,1617.41,2022-05-06
+CUST00065,Michele Carr,Beau Bassin,1257.91,2026-06-05
+CUST00066,Aimee Montoya,Quatre Bornes,171.28,2023-01-15
+CUST00067,Teresa Taylor,Beau Bassin,1306.14,2022-02-19
+CUST00068,Juan Nelson,Beau Bassin,1396.51,2024-07-17
+CUST00069,Christina Walters,Rose Hill,5838.4,2022-11-13
+CUST00070,Taylor Mathis Jr.,Vacoas,1144.37,2023-08-27
+CUST00071,Aaron Wise,Curepipe,1669.65,2024-09-13
+CUST00072,Patrick Arnold,Tamarin,2896.17,2023-09-03
+CUST00073,Benjamin Ware,Quatre Bornes,2270.46,2026-01-06
+CUST00074,Sandra Aguilar,Mahebourg,3370.24,2022-04-19
+CUST00075,Eric Nolan,Rose Hill,346.33,2025-06-26
+CUST00076,Stephanie Clark,Quatre Bornes,549.65,2022-10-18
+CUST00077,Richard Henson,Grand Baie,829.81,2023-07-27
+CUST00078,Brittany Spears,Flacq,287.45,2025-10-27
+CUST00079,Rita Keith,Vacoas,1405.41,2021-09-09
+CUST00080,Evelyn Galvan,Mahebourg,591.34,2025-07-07
+CUST00081,Rita Adams,Rose Hill,3660.17,2025-06-10
+CUST00082,Shane Garrison,Beau Bassin,676.96,2022-08-30
+CUST00083,Julia Torres,Port Louis,1027.6,2025-06-25
+CUST00084,Alexander Lee,Rose Hill,2362.37,2023-03-08
+CUST00085,Tracy Ramirez,Port Louis,423.31,2024-09-21
+CUST00086,William Herrera,Beau Bassin,266.87,2026-03-10
+CUST00087,Wesley White,Flacq,1533.26,2026-04-21
+CUST00088,Brian Hamilton,Vacoas,1620.15,2025-02-25
+CUST00089,Larry Dixon,Curepipe,2314.76,2023-06-19
+CUST00090,Dawn Fletcher,Rose Hill,1948.3,2021-07-30
+CUST00091,Kimberly Ball,Tamarin,1664.18,2025-03-21
+CUST00092,Helen Jones,Beau Bassin,747.11,2024-11-01
+CUST00093,Erik Charles,Rose Hill,1587.88,2025-02-09
+CUST00094,Eric Ortiz,Grand Baie,1659.5,2023-07-20
+CUST00095,Cameron Fisher,Flacq,723.27,2026-03-12
+CUST00096,Stephanie Gilbert,Grand Baie,4337.66,2023-01-18
+CUST00097,April Mitchell,Quatre Bornes,1885.02,2023-09-07
+CUST00098,Mary Marshall,Vacoas,558.77,2023-09-29
+CUST00099,John Santana,Quatre Bornes,2322.62,2025-06-26
+CUST00100,Bradley Robertson,Rose Hill,2596.32,2024-09-06
+CUST00101,Robert Potter,Mahebourg,1806.7,2024-11-17
+CUST00102,Curtis Johnson,Mahebourg,1095.62,2022-10-09
+CUST00103,Samuel Jones,Vacoas,696.55,2023-08-10
+CUST00104,Cheyenne Horton,Tamarin,1255.28,2024-01-01
+CUST00105,Matthew Smith,Flacq,1717.62,2025-04-06
+CUST00106,Ashley Coleman,Tamarin,1346.81,2022-06-08
+CUST00107,Kelly Williams,Flacq,3468.42,2022-10-17
+CUST00108,Joyce Solis,Beau Bassin,2089.53,2024-11-07
+CUST00109,Linda Dodson DVM,Rose Hill,629.54,2024-07-31
+CUST00110,Kathy Rivas,Quatre Bornes,504.95,2024-04-06
+CUST00111,Natasha Wells,Mahebourg,1896.28,2022-11-04
+CUST00112,Mark Cannon,Grand Baie,1115.6,2024-02-18
+CUST00113,Denise Jones,Curepipe,2215.05,2022-12-22
+CUST00114,Francisco Fernandez,Port Louis,1884.24,2022-04-01
+CUST00115,Michael Mccarthy,Curepipe,1259.52,2021-11-19
+CUST00116,Joshua Perry,Quatre Bornes,636.05,2022-08-02
+CUST00117,Taylor Silva,Quatre Bornes,300.96,2024-12-27
+CUST00118,Pamela James,Flacq,1566.9,2021-08-06
+CUST00119,Paul Castaneda,Tamarin,416.2,2026-04-05
+CUST00120,Paul Payne,Curepipe,612.96,2024-07-15
+CUST00121,Daniel Graham,Flacq,1498.49,2021-09-17
+CUST00122,Michael Powell,Flacq,1394.36,2022-05-19
+CUST00123,Cameron Dean,Tamarin,466.98,2021-09-13
+CUST00124,Justin Johnson,Grand Baie,2793.86,2024-09-24
+CUST00125,Joel Williams,Mahebourg,2744.69,2023-06-08
+CUST00126,Gabriel Juarez,Vacoas,1939.13,2023-06-08
+CUST00127,Sandra King,Mahebourg,1937.48,2021-12-21
+CUST00128,Joshua Cooke,Port Louis,1939.15,2023-04-16
+CUST00129,Rachael Pearson,Curepipe,2581.25,2025-04-12
+CUST00130,Christina Smith,Mahebourg,2125.58,2022-04-26
+CUST00131,Michael Elliott,Vacoas,683.84,2022-08-22
+CUST00132,Pamela Jackson,Beau Bassin,1103.4,2024-07-22
+CUST00133,Ashley Weiss,Curepipe,5437.23,2026-04-25
+CUST00134,Alexander Collins,Vacoas,185.19,2024-11-25
+CUST00135,Jennifer Espinoza,Flacq,902.9,2021-12-10
+CUST00136,Lori Garcia,Quatre Bornes,2803.85,2025-05-15
+CUST00137,Lindsay Martinez,Grand Baie,722.61,2026-05-29
+CUST00138,Hannah Patterson,Port Louis,2165.58,2023-05-23
+CUST00139,Gloria Atkinson,Vacoas,1380.96,2025-08-12
+CUST00140,Tyler Reid,Mahebourg,767.24,2025-08-24
+CUST00141,Jessica Gross,Quatre Bornes,144.81,2026-04-26
+CUST00142,Robert Medina,Mahebourg,1535.32,2023-12-12
+CUST00143,Nicholas Adams,Curepipe,670.89,2025-10-04
+CUST00144,Angelica Keith,Vacoas,1218.31,2022-10-08
+CUST00145,Leonard Gray,Mahebourg,1925.84,2021-09-16
+CUST00146,Catherine Lewis,Tamarin,2442.25,2025-06-29
+CUST00147,Spencer Haynes,Rose Hill,900.51,2022-12-05
+CUST00148,Travis Miller,Quatre Bornes,766.0,2025-02-09
+CUST00149,Peter Vaughn DDS,Beau Bassin,409.04,2023-12-26
+CUST00150,Anna Walker,Quatre Bornes,2523.7,2024-12-21
+CUST00151,Kevin Kennedy,Mahebourg,4945.38,2024-03-07
+CUST00152,Patrick Rivera,Mahebourg,2709.18,2025-01-10
+CUST00153,David Martinez,Port Louis,3116.48,2022-07-08
+CUST00154,Joshua Gill,Tamarin,727.87,2022-06-24
+CUST00155,John Hardy,Beau Bassin,1846.24,2026-05-16
+CUST00156,Diane Garcia,Grand Baie,2304.06,2022-07-10
+CUST00157,Christopher Smith,Port Louis,530.51,2024-03-12
+CUST00158,William Tran,Curepipe,3829.72,2024-12-31
+CUST00159,Sean Henry,Beau Bassin,334.57,2025-11-11
+CUST00160,Julie Alexander,Vacoas,3444.53,2022-06-23
+CUST00161,Todd Woods,Rose Hill,332.23,2025-08-12
+CUST00162,Benjamin Soto,Port Louis,554.83,2021-10-31
+CUST00163,Justin Torres,Rose Hill,1869.8,2026-06-17
+CUST00164,Phillip Obrien,Tamarin,1406.73,2025-06-16
+CUST00165,Joseph Hayes,Curepipe,973.66,2023-09-30
+CUST00166,Wanda Torres,Curepipe,3733.72,2024-08-15
+CUST00167,Natalie Meza,Grand Baie,419.98,2022-08-04
+CUST00168,Matthew Moore,Curepipe,1182.63,2022-06-04
+CUST00169,Aaron Hayes,Mahebourg,2037.92,2024-06-28
+CUST00170,David Mann,Quatre Bornes,1645.1,2025-01-10
+CUST00171,Michael Bradshaw,Quatre Bornes,788.07,2025-06-11
+CUST00172,Mary Peck,Grand Baie,812.57,2023-08-29
+CUST00173,Maria Kerr,Mahebourg,2417.36,2025-08-20
+CUST00174,Christopher Parker,Quatre Bornes,2494.95,2025-04-02
+CUST00175,Donna Martinez,Vacoas,1676.56,2024-12-15
+CUST00176,Terri Mason,Mahebourg,647.34,2023-12-31
+CUST00177,Andrew Reynolds,Tamarin,834.43,2023-02-26
+CUST00178,Brandon Hayden,Flacq,1311.86,2025-09-06
+CUST00179,Tiffany Key,Rose Hill,1458.22,2024-11-16
+CUST00180,Andrew Avila,Mahebourg,1981.95,2023-11-19
+CUST00181,Sydney White,Rose Hill,1135.22,2024-06-12
+CUST00182,Katherine Davis,Vacoas,2380.41,2023-04-13
+CUST00183,Michael Hodge,Flacq,2362.36,2023-03-11
+CUST00184,Donna Landry,Beau Bassin,3187.16,2025-07-27
+CUST00185,Jordan Edwards,Grand Baie,1355.14,2023-02-27
+CUST00186,Jennifer Robertson,Mahebourg,1696.94,2026-06-06
+CUST00187,Kimberly Gutierrez,Grand Baie,1203.39,2022-06-29
+CUST00188,Peter Garrett,Curepipe,654.24,2025-04-22
+CUST00189,Joshua Pennington,Rose Hill,4872.08,2023-09-22
+CUST00190,Barbara Dudley,Rose Hill,2922.73,2024-07-25
+CUST00191,Christopher Pierce,Curepipe,2329.47,2024-04-14
+CUST00192,Willie Durham,Beau Bassin,1320.72,2023-11-03
+CUST00193,Ronnie Jimenez,Port Louis,604.76,2025-02-03
+CUST00194,Denise Davenport,Tamarin,2615.28,2026-05-23
+CUST00195,Juan Reyes,Mahebourg,1187.15,2026-02-07
+CUST00196,Sherry Shields,Rose Hill,1806.89,2022-12-05
+CUST00197,Jennifer Villa,Tamarin,831.75,2024-01-25
+CUST00198,Diane Evans,Rose Hill,1602.67,2024-06-15
+CUST00199,Mrs. Brittany Ryan MD,Port Louis,875.31,2024-04-13

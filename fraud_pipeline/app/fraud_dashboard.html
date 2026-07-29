@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fraud Review Console</title>
+<style>
+  :root {
+    --bg: #0A0D13;
+    --surface: #11151E;
+    --surface-2: #171C28;
+    --border: #232939;
+    --text: #E7EAF0;
+    --text-dim: #8891A5;
+    --text-faint: #576079;
+    --risk-3: #FF5C5C;
+    --risk-2: #FF9A4D;
+    --risk-1: #E8C24D;
+    --safe: #3DD9A8;
+    --info: #6E9FFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 36px 48px 60px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--info);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .sub {
+    color: var(--text-dim);
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  .kpi-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .kpi {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    min-width: 0;
+  }
+  .kpi .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .kpi .value {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  .kpi .value.safe { color: var(--safe); }
+  .kpi .value.risk { color: var(--risk-2); }
+  .kpi .note { font-size: 12px; color: var(--text-faint); margin-top: 4px; }
+
+  .grid {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 28px;
+    align-items: flex-start;
+  }
+  .grid > .panel:first-child { width: 340px; flex-shrink: 0; }
+  .grid > .panel:last-child { flex: 1; min-width: 0; }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .panel h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .rule-row { display:flex; align-items:center; gap:10px; margin-bottom: 14px; font-size: 13px; }
+  .rule-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink:0; }
+  .rule-label { color: var(--text-dim); flex: 1; }
+  .rule-count { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  .filters { display: flex; gap: 8px; margin-bottom: 14px; }
+  .filter-btn {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+  .filter-btn.active { background: var(--info); color: #0A0D13; border-color: var(--info); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th {
+    text-align: left;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    font-weight: 700;
+    padding: 0 10px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:hover { background: var(--surface-2); }
+  tbody td { padding: 12px 10px; vertical-align: middle; }
+  .mono { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; color: var(--text-dim); }
+  .amount { font-variant-numeric: tabular-nums; font-weight: 700; }
+  .loc { font-size: 12.5px; }
+  .loc .arrow { color: var(--text-faint); margin: 0 4px; }
+  .loc .foreign { color: var(--risk-2); font-weight: 600; }
+
+  .dna { display: flex; gap: 4px; }
+  .dna-dot {
+    width: 20px; height: 8px; border-radius: 3px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .dna-dot.on-amount { background: var(--risk-1); border-color: var(--risk-1); }
+  .dna-dot.on-location { background: var(--risk-2); border-color: var(--risk-2); }
+  .dna-dot.on-velocity { background: var(--risk-3); border-color: var(--risk-3); }
+
+  .risk-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;
+  }
+  .risk-pill.r3 { background: rgba(255,92,92,0.15); color: var(--risk-3); }
+  .risk-pill.r2 { background: rgba(255,154,77,0.15); color: var(--risk-2); }
+  .risk-pill.r1 { background: rgba(232,194,77,0.15); color: var(--risk-1); }
+  .risk-pill .dot { width:6px; height:6px; border-radius:50%; background: currentColor; }
+
+  .legend { display:flex; gap: 18px; margin-top: 4px; font-size: 11.5px; color: var(--text-faint); }
+  .legend span { display:flex; align-items:center; gap: 6px; }
+  .legend .sw { width: 12px; height: 6px; border-radius: 2px; }
+
+  footer { margin-top: 26px; font-size: 11.5px; color: var(--text-faint); text-align: center; }
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">MCB Fraud Operations &mdash; Internal Tool (Demo)</div>
+  <h1>Fraud Review Console</h1>
+  <div class="sub">Transactions flagged by the SQL-based dbt fraud pipeline, ranked by risk. Data refreshed from <span class="mono">flagged_transactions</span>.</div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">Transactions scanned</div>
+      <div class="value" id="kpi-total">-</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Flagged for review</div>
+      <div class="value risk" id="kpi-flagged">-</div>
+      <div class="note" id="kpi-flagged-pct"></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Recall</div>
+      <div class="value safe" id="kpi-recall">-</div>
+      <div class="note">of true fraud caught</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Precision</div>
+      <div class="value safe" id="kpi-precision">-</div>
+      <div class="note">of flags were real fraud</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Data quality</div>
+      <div class="value safe">14/14</div>
+      <div class="note">dbt tests passing</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <h2>Why transactions get flagged</h2>
+      <div id="ruleChart"></div>
+    </div>
+
+    <div class="panel">
+      <h2 style="display:flex; justify-content:space-between; align-items:center;">
+        <span>Flagged transactions</span>
+        <span style="color:var(--text-faint); font-weight:400; text-transform:none; letter-spacing:0;">sorted by risk</span>
+      </h2>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All (<span id="f-all">-</span>)</button>
+        <button class="filter-btn" data-filter="3">High risk (<span id="f-3">-</span>)</button>
+        <button class="filter-btn" data-filter="2">Medium (<span id="f-2">-</span>)</button>
+        <button class="filter-btn" data-filter="1">Low (<span id="f-1">-</span>)</button>
+      </div>
+      <div style="max-height:520px; overflow-y:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Transaction</th>
+            <th>Customer</th>
+            <th>Amount</th>
+            <th>Route</th>
+            <th>Flag DNA</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody id="tx-body"></tbody>
+      </table>
+      </div>
+      <div class="legend">
+        <span><div class="sw" style="background:var(--risk-1)"></div>Amount</span>
+        <span><div class="sw" style="background:var(--risk-2)"></div>Location</span>
+        <span><div class="sw" style="background:var(--risk-3)"></div>Velocity</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>Fraud Review Console &middot; built on the dbt fraud-flagging pipeline &middot; demo data, not real customer information</footer>
+
+<script>
+const DATA = {"kpis": {"total_transactions": 5057, "total_flagged": 138, "flagged_pct": 2.7, "recall_pct": 70.1, "precision_pct": 79.7}, "transactions": [{"transaction_id": "66977a60-78ca-4ce7-8caf-0c83d53f4f71", "customer_id": "CUST00064", "transaction_ts": "2026-07-25 12:40:07.379834", "amount": 4729.84, "merchant_category": "ATM Withdrawal", "location": "Lagos", "home_city": "Grand Baie", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "5b3e18b5-93bf-4840-ac6b-b6e03325d62a", "customer_id": "CUST00193", "transaction_ts": "2026-07-24 08:37:21.379834", "amount": 1232.38, "merchant_category": "Entertainment", "location": "Lagos", "home_city": "Port Louis", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "1a151cb9-069d-4501-a759-5d6f4b7d86bd", "customer_id": "CUST00003", "transaction_ts": "2026-07-21 21:40:54.379834", "amount": 2862.67, "merchant_category": "Restaurant", "location": "Lagos", "home_city": "Rose Hill", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "4adf7d70-9b62-4d26-9c65-fb5436e6e18b", "customer_id": "CUST00197", "transaction_ts": "2026-07-19 04:40:13.379834", "amount": 2158.42, "merchant_category": "Restaurant", "location": "Kyiv", "home_city": "Tamarin", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "70bf69f8-1de7-45b5-8761-a66aa74b98fd", "customer_id": "CUST00103", "transaction_ts": "2026-07-17 21:09:01.379834", "amount": 1654.98, "merchant_category": "Restaurant", "location": "Kyiv", "home_city": "Vacoas", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "ff915226-8adb-47f2-805a-a179461f598e", "customer_id": "CUST00036", "transaction_ts": "2026-07-16 21:44:42.379834", "amount": 1827.66, "merchant_category": "Electronics", "location": "Manila", "home_city": "Curepipe", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "400d34af-6c24-48b3-b624-8066ebe92fc4", "customer_id": "CUST00025", "transaction_ts": "2026-07-15 12:51:51.379834", "amount": 4514.94, "merchant_category": "Electronics", "location": "Bogota", "home_city": "Tamarin", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "eac9cc7d-4034-4414-89a8-62bce39c3241", "customer_id": "CUST00121", "transaction_ts": "2026-07-13 20:07:51.379834", "amount": 3707.02, "merchant_category": "Online Retail", "location": "Jakarta", "home_city": "Flacq", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "3192e059-f7e6-4ba5-af86-69c80d5df3cc", "customer_id": "CUST00065", "transaction_ts": "2026-07-13 11:08:50.379834", "amount": 3384.4, "merchant_category": "Electronics", "location": "Kyiv", "home_city": "Beau Bassin", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "e6886529-dc4d-4558-9ff5-c8166b94ab44", "customer_id": "CUST00066", "transaction_ts": "2026-07-11 00:05:03.379834", "amount": 393.86, "merchant_category": "Restaurant", "location": "Bogota", "home_city": "Quatre Bornes", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "9c613009-69cb-44c9-b6f7-bc09bcb3d490", "customer_id": "CUST00059", "transaction_ts": "2026-07-10 16:21:34.379834", "amount": 4690.16, "merchant_category": "Pharmacy", "location": "Lagos", "home_city": "Curepipe", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "e7395b81-e161-4975-884a-253698a50640", "customer_id": "CUST00062", "transaction_ts": "2026-07-09 13:05:38.379834", "amount": 8826.77, "merchant_category": "Entertainment", "location": "Flacq", "home_city": "Flacq", "flag_high_amount": true, "flag_unusual_location": false, "flag_rapid_repeat": true, "flag_count": 2}, {"transaction_id": "7d2cc86a-8f1a-42f8-971c-1783d22b5c7c", "customer_id": "CUST00074", "transaction_ts": "2026-07-03 10:52:59.379834", "amount": 8181.38, "merchant_category": "Pharmacy", "location": "Lagos", "home_city": "Mahebourg", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "24171196-5e15-4365-b728-4a98f29e8dbf", "customer_id": "CUST00199", "transaction_ts": "2026-07-02 22:41:17.379834", "amount": 2237.42, "merchant_category": "Restaurant", "location": "Kyiv", "home_city": "Port Louis", "flag_high_amount": true, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 2}, {"transaction_id": "ceb1b237-45c0-454f-b6b2-2cfbab12dccb", "customer_id": "CUST00066", "transaction_ts": "2026-07-28 09:36:43.379834", "amount": 155.09, "merchant_category": "Utility Bill", "location": "Quatre Bornes", "home_city": "Quatre Bornes", "flag_high_amount": false, "flag_unusual_location": false, "flag_rapid_repeat": true, "flag_count": 1}, {"transaction_id": "58370411-2e9d-4956-a019-ae42ac70a846", "customer_id": "CUST00066", "transaction_ts": "2026-07-28 09:33:43.379834", "amount": 155.09, "merchant_category": "Utility Bill", "location": "Quatre Bornes", "home_city": "Quatre Bornes", "flag_high_amount": false, "flag_unusual_location": false, "flag_rapid_repeat": true, "flag_count": 1}, {"transaction_id": "486149e2-a984-46d1-9c5e-371496a4a30f", "customer_id": "CUST00018", "transaction_ts": "2026-07-28 04:12:58.379834", "amount": 1802.63, "merchant_category": "Utility Bill", "location": "Bogota", "home_city": "Port Louis", "flag_high_amount": false, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 1}, {"transaction_id": "3ae3aafa-63d6-4e95-9e07-ca41870d68ff", "customer_id": "CUST00088", "transaction_ts": "2026-07-28 01:57:21.379834", "amount": 4015.39, "merchant_category": "Electronics", "location": "Bogota", "home_city": "Vacoas", "flag_high_amount": false, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 1}, {"transaction_id": "683ce8a1-8fe3-4c66-9314-2cf66791d125", "customer_id": "CUST00015", "transaction_ts": "2026-07-27 23:50:14.379834", "amount": 9459.16, "merchant_category": "Restaurant", "location": "Rose Hill", "home_city": "Rose Hill", "flag_high_amount": true, "flag_unusual_location": false, "flag_rapid_repeat": false, "flag_count": 1}, {"transaction_id": "e12e955f-a049-4c06-9fe3-c86105d81e3c", "customer_id": "CUST00055", "transaction_ts": "2026-07-27 18:52:05.379834", "amount": 20484.02, "merchant_category": "ATM Withdrawal", "location": "Curepipe", "home_city": "Curepipe", "flag_high_amount": true, "flag_unusual_location": false, "flag_rapid_repeat": false, "flag_count": 1}, {"transaction_id": "dbd052fe-ccc4-495c-9491-069e30d0288e", "customer_id": "CUST00099", "transaction_ts": "2026-07-27 16:46:19.379834", "amount": 4656.29, "merchant_category": "Electronics", "location": "Kyiv", "home_city": "Quatre Bornes", "flag_high_amount": false, "flag_unusual_location": true, "flag_rapid_repeat": false, "flag_count": 1}, {"transaction_id": "c25c1fe8-a7d0-4b48-ab15-1dbd47a53aa8", "customer_id": "CUST00183", "transaction_ts": "2026-07-26 18:35:06.379834", "amount": 2342.43, "merchant_category": "Utility Bill", "location": "Flacq", "home_city": "Flacq", "flag_high_amount": false, "flag_unusual_location": false, "flag_rapid_repeat": true, "flag_count": 1}, {"transaction_id": "8fa0f415-02f7-4d9c-9341-aba970fcc6a0", "customer_id": "CUST00183", "transaction_ts": "2026-07-26 18:33:06.379834", "amount": 2342.43, "merchant_category": "Utility Bill", "location": "Flacq", "home_city": "Flacq", "flag_high_amount": false, "flag_unusual_location": false, "flag_rapid_repeat": true, "flag_count": 1}, {"transaction_id": "5ab27b70-eb81-430d-a05e-d9b6127ebb4f", "customer_id": "CUST00011", "transaction_ts": "2026-07-26 15:27:46.379834", "amount": 11206.98, "merchant_category": "Travel", "location": "Port Louis", "home_city": "Port Louis", "flag_high_amount": true, "flag_unusual_location": false, "flag_rapid_repeat": false, "flag_count": 1}, {"transaction_id": "dee73663-4e72-41bc-bd79-e7c2bf426a17", "customer_id": "CUST00195", "transaction_ts": "2026-07-26 13:19:06.379834", "amount": 5351.09, "merchant_category": "Online Retail", "location": "Mahebourg", "home_city": "Mahebourg", "flag_high_amount": true, "flag_unusual_location": false, "flag_rapid_repeat": false, "flag_count": 1}], "breakdown": {"high_amount": 44.0, "unusual_location": 31.0, "rapid_repeat": 77.0}};
+
+function formatNumber(n) {
+  const parts = String(Math.round(n)).split('');
+  let out = '';
+  for (let i = 0; i < parts.length; i++) {
+    if (i > 0 && (parts.length - i) % 3 === 0) out += ',';
+    out += parts[i];
+  }
+  return out;
+}
+function formatAmount(n) {
+  return formatNumber(Math.floor(n)) + '.' + n.toFixed(2).split('.')[1];
+}
+
+document.getElementById('kpi-total').textContent = formatNumber(DATA.kpis.total_transactions);
+document.getElementById('kpi-flagged').textContent = DATA.kpis.total_flagged;
+document.getElementById('kpi-flagged-pct').textContent = DATA.kpis.flagged_pct + '% of all transactions';
+document.getElementById('kpi-recall').textContent = DATA.kpis.recall_pct + '%';
+document.getElementById('kpi-precision').textContent = DATA.kpis.precision_pct + '%';
+
+(function renderBarChart() {
+  const items = [
+    { label: 'Amount', value: DATA.breakdown.high_amount, color: '#E8C24D' },
+    { label: 'Location', value: DATA.breakdown.unusual_location, color: '#FF9A4D' },
+    { label: 'Velocity', value: DATA.breakdown.rapid_repeat, color: '#FF5C5C' },
+  ];
+  const max = Math.max(...items.map(i => i.value));
+  const container = document.getElementById('ruleChart');
+  container.innerHTML = items.map(i => `
+    <div style="margin-bottom:14px;">
+      <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-dim); margin-bottom:5px;">
+        <span>${i.label}</span><span style="font-weight:700; color:var(--text);">${i.value}</span>
+      </div>
+      <div style="background:var(--surface-2); border-radius:5px; height:10px; overflow:hidden;">
+        <div style="width:${(i.value/max*100).toFixed(0)}%; height:100%; background:${i.color}; border-radius:5px;"></div>
+      </div>
+    </div>
+  `).join('');
+})();
+
+function riskClass(count) {
+  if (count >= 3) return 'r3';
+  if (count === 2) return 'r2';
+  return 'r1';
+}
+function riskLabel(count) {
+  if (count >= 3) return 'High';
+  if (count === 2) return 'Medium';
+  return 'Low';
+}
+
+function renderRows(filter) {
+  const tbody = document.getElementById('tx-body');
+  tbody.innerHTML = '';
+  const rows = DATA.transactions.filter(t => filter === 'all' || String(t.flag_count) === filter);
+  rows.forEach(t => {
+    const tr = document.createElement('tr');
+    const foreignLoc = t.location !== t.home_city;
+    tr.innerHTML = `
+      <td class="mono">${t.transaction_id.slice(0,8)}&hellip;</td>
+      <td>${t.customer_id}</td>
+      <td class="amount">$${formatAmount(t.amount)}</td>
+      <td class="loc">${t.home_city}<span class="arrow">&rarr;</span><span class="${foreignLoc ? 'foreign' : ''}">${t.location}</span></td>
+      <td><div class="dna">
+        <div class="dna-dot ${t.flag_high_amount ? 'on-amount' : ''}"></div>
+        <div class="dna-dot ${t.flag_unusual_location ? 'on-location' : ''}"></div>
+        <div class="dna-dot ${t.flag_rapid_repeat ? 'on-velocity' : ''}"></div>
+      </div></td>
+      <td><span class="risk-pill ${riskClass(t.flag_count)}"><span class="dot"></span>${riskLabel(t.flag_count)}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+const counts = {all: DATA.transactions.length, 1:0, 2:0, 3:0};
+DATA.transactions.forEach(t => { counts[Math.min(t.flag_count,3)] = (counts[Math.min(t.flag_count,3)]||0) + 1; });
+document.getElementById('f-all').textContent = counts.all;
+document.getElementById('f-3').textContent = counts[3] || 0;
+document.getElementById('f-2').textContent = counts[2] || 0;
+document.getElementById('f-1').textContent = counts[1] || 0;
+
+Array.prototype.slice.call(document.querySelectorAll('.filter-btn')).forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    Array.prototype.slice.call(document.querySelectorAll('.filter-btn')).forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    renderRows(btn.dataset.filter);
+  });
+});
+
+// Allow ?filter=X for headless screenshot capture of specific states
+function getQueryParam(name) {
+  const match = window.location.search.match(new RegExp('[?&]' + name + '=([^&]*)'));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+const initialFilter = getQueryParam('filter') || 'all';
+Array.prototype.slice.call(document.querySelectorAll('.filter-btn')).forEach(function(b) {
+  b.classList.toggle('active', b.dataset.filter === initialFilter);
+});
+renderRows(initialFilter);
+</script>
+</body>
+</html>

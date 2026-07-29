@@ -1,0 +1,17 @@
+# Example profiles.yml for running this same dbt project against PostgreSQL
+# instead of DuckDB. Copy this to ~/.dbt/profiles.yml and fill in your
+# credentials to migrate from the local DuckDB demo to a real Postgres
+# instance (requires: pip install dbt-postgres).
+
+fraud_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: your_username
+      password: "{{ env_var('DBT_POSTGRES_PASSWORD') }}"
+      port: 5432
+      dbname: fraud_pipeline
+      schema: public
+      threads: 4

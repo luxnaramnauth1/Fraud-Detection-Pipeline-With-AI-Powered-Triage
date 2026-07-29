@@ -1,0 +1,13 @@
+faker
+pandas
+duckdb
+dbt-core
+dbt-duckdb
+
+# For migrating to production Postgres instead of DuckDB:
+# dbt-postgres
+# psycopg2-binary
+# sqlalchemy
+
+# For running the Airflow DAG (dags/fraud_pipeline_dag.py):
+# apache-airflow

@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "Cleaned raw transactions."
+    columns:
+      - name: transaction_id
+        description: "Unique transaction identifier."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: amount
+        tests:
+          - not_null
+
+  - name: stg_customers
+    description: "Cleaned raw customer profiles."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: int_customer_transaction_stats
+    description: "Per-customer historical transaction behavior baseline."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: int_transaction_velocity
+    description: "Flags rapid repeat transactions per customer using window functions."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+
+  - name: flagged_transactions
+    description: "Final output: transactions flagged as potentially suspicious, with rule-level breakdown."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: is_flagged
+        tests:
+          - not_null
+      - name: flag_count
+        tests:
+          - not_null

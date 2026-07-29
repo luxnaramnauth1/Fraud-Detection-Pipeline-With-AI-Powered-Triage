@@ -1,0 +1,21 @@
+transaction_id,customer_id,transaction_ts,amount,merchant_category,location,home_city,flag_high_amount,flag_unusual_location,flag_rapid_repeat,flag_count,is_flagged,is_simulated_fraud
+043232ee-2ebf-4cd3-b880-20ac53fd7918,CUST00064,2026-07-25 09:16:21.275302,4729.84,ATM Withdrawal,Lagos,Grand Baie,True,True,False,2,True,1
+7c1ea427-c794-4c0e-a2e6-614af4044d4c,CUST00193,2026-07-24 05:13:35.275302,1232.38,Entertainment,Lagos,Port Louis,True,True,False,2,True,1
+ddf35a61-9622-492d-b872-4c67cfa0b2f9,CUST00003,2026-07-21 18:17:08.275302,2862.67,Restaurant,Lagos,Rose Hill,True,True,False,2,True,1
+3e40dac5-ed60-4d7d-b8c6-8fb018265a30,CUST00197,2026-07-19 01:16:27.275302,2158.42,Restaurant,Kyiv,Tamarin,True,True,False,2,True,1
+94cbc55a-5bee-4e22-a5a1-d8892a0e3ac8,CUST00103,2026-07-17 17:45:15.275302,1654.98,Restaurant,Kyiv,Vacoas,True,True,False,2,True,1
+aa3e5d42-ad3a-4b21-a58d-1d04dd77d121,CUST00036,2026-07-16 18:20:56.275302,1827.66,Electronics,Manila,Curepipe,True,True,False,2,True,1
+edceeed1-4afc-4889-b375-141333a90de3,CUST00025,2026-07-15 09:28:05.275302,4514.94,Electronics,Bogota,Tamarin,True,True,False,2,True,1
+51f81368-83c6-43a3-b8c6-7657c025c42e,CUST00121,2026-07-13 16:44:05.275302,3707.02,Online Retail,Jakarta,Flacq,True,True,False,2,True,1
+79d6e9aa-6a59-47be-828b-e45eb73b1e87,CUST00065,2026-07-13 07:45:04.275302,3384.4,Electronics,Kyiv,Beau Bassin,True,True,False,2,True,1
+892a9951-22d6-4502-8e06-3ad227953c4e,CUST00066,2026-07-10 20:41:17.275302,393.86,Restaurant,Bogota,Quatre Bornes,True,True,False,2,True,1
+3741ca25-6395-4ef7-9ed9-78dbb8f6e02e,CUST00059,2026-07-10 12:57:48.275302,4690.16,Pharmacy,Lagos,Curepipe,True,True,False,2,True,1
+10a83257-2783-47e8-9f0a-94d492b869b8,CUST00062,2026-07-09 09:41:52.275302,8826.77,Entertainment,Flacq,Flacq,True,False,True,2,True,1
+21662d78-f793-4501-b71a-103783d68b63,CUST00074,2026-07-03 07:29:13.275302,8181.38,Pharmacy,Lagos,Mahebourg,True,True,False,2,True,1
+6064631a-1546-43b9-8732-8cb55b57de7f,CUST00199,2026-07-02 19:17:31.275302,2237.42,Restaurant,Kyiv,Port Louis,True,True,False,2,True,1
+284ca879-d16b-4e26-a7e1-a5d27d6d935e,CUST00066,2026-07-28 06:12:57.275302,155.09,Utility Bill,Quatre Bornes,Quatre Bornes,False,False,True,1,True,1
+0051acb7-990b-43e8-9853-584073ef9625,CUST00066,2026-07-28 06:09:57.275302,155.09,Utility Bill,Quatre Bornes,Quatre Bornes,False,False,True,1,True,1
+5c6a3f8c-48cb-4a74-bfc8-7c9e0ef6fc67,CUST00018,2026-07-28 00:49:12.275302,1802.63,Utility Bill,Bogota,Port Louis,False,True,False,1,True,1
+81f315f3-e77c-4b71-9791-365b8bdebcfd,CUST00088,2026-07-27 22:33:35.275302,4015.39,Electronics,Bogota,Vacoas,False,True,False,1,True,1
+2ab5366d-c42d-48b5-83df-36527830f08b,CUST00015,2026-07-27 20:26:28.275302,9459.16,Restaurant,Rose Hill,Rose Hill,True,False,False,1,True,1
+de7fad2a-b185-4fad-bf01-3809ae96f0ad,CUST00055,2026-07-27 15:28:19.275302,20484.02,ATM Withdrawal,Curepipe,Curepipe,True,False,False,1,True,1
